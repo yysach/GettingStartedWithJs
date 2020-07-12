@@ -22,6 +22,16 @@ var server = http.createServer(function(req,res){
             res.writeHead(200, {"Content-Type": "text/css"});
             fs.createReadStream(__dirname+'/template/style.css','utf8').pipe(res)
             break;
+        case "/test.json":
+            res.writeHead(200, {"Content-Type": "application/css"});
+            var myObj={
+                fname:"sachin",
+                lname:"yadav",
+                age:22
+            }
+            res.end(JSON.stringify(myObj));
+
+            break;
         default :    
             res.writeHead(200, {"Content-Type": "text/html"});
             fs.createReadStream(__dirname+'/template/index.html','utf8').pipe(res)
